@@ -1,4 +1,4 @@
-import forrier_transform
+import fourier_transform
 import generate_basic_shape
 import numpy as np
 
@@ -47,8 +47,8 @@ class Shapes:
             #     coords = generate_basic_shape.generate_polygon(n_sides=8,num_points=length)
             else:
                 continue 
-            descriptors =  forrier_transform.compute_fourier_descriptors(coords)
-            normalized_descriptor = forrier_transform.normalize_descriptors(descriptors)
+            descriptors =  fourier_transform.compute_fourier_descriptors(coords)
+            normalized_descriptor = fourier_transform.normalize_descriptors(descriptors)
             self.basic_shape_descriptors.append(normalized_descriptor) 
 
 
@@ -57,8 +57,8 @@ class Shapes:
     def check_shape(self,polyline,threshold = 0.3):
         shapes = ["circle","ellipse","rectangle","line","star","triangle","square","pentagon","hexagon"] #"heptagon","octagon"
         threshold_limits = [0.1,0.3,0.3,0.15,0.2,0.2,0.15,0.1,0.1]
-        shape_descriptors = forrier_transform.compute_fourier_descriptors(polyline) 
-        normalized_shape_descriptors = forrier_transform.normalize_descriptors(descriptors=shape_descriptors)
+        shape_descriptors = fourier_transform.compute_fourier_descriptors(polyline) 
+        normalized_shape_descriptors = fourier_transform.normalize_descriptors(descriptors=shape_descriptors)
 
         self.generate_shape(len(polyline),shapes)
 
